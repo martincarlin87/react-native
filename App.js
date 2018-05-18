@@ -1,7 +1,14 @@
-import React from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { 
+  Alert,
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
-export default class App extends React.Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
@@ -25,17 +32,36 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        
-        <Button
-          onPress={() => this.select('test')}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
+        <View style={[styles.header]}></View>
+        <ScrollView>
+          <View style={[styles.content]}>
+            <Text>Open up App.js to start working on your app!</Text>
+            <Text>Changes you make will automatically reload.</Text>
+            <Text>Shake your phone to open the developer menu.</Text>
+            
+            <Button
+              style={[styles.box]}
+              onPress={() => this.select('test')}
+              title="Learn More"
+              accessibilityLabel="Learn more about this purple button"
+            />
 
+            <Button
+              style={[styles.box]}
+              onPress={() => this.select('test')}
+              title="Learn More"
+              accessibilityLabel="Learn more about this purple button"
+            />
+
+            <Button
+              style={[styles.box]}
+              onPress={() => this.select('test')}
+              title="Learn More"
+              accessibilityLabel="Learn more about this purple button"
+            />
+          </View>
+        </ScrollView>
+        <View style={[styles.footer]}></View>
       </View>
     );
   }
@@ -48,4 +74,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header: {
+    height: 60,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    backgroundColor: '#03A9F4',
+    zIndex: 10
+  },
+  content: {
+    alignItems: 'center',
+    marginTop: 80,
+    marginBottom: 70
+  },
+  footer: {
+    height: 60,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#8BC34A'
+  },
+  button: {
+    backgroundColor: '#333',
+    marginBottom: 10
+  }
 });
